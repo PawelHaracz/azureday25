@@ -25,3 +25,9 @@ cd iaas
 ```
 
 For more details, see [iaas/README.md](iaas/README.md).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2025 Pawel Haracz
