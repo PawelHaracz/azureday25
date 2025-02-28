@@ -47,23 +47,28 @@ locals {
 # Source block defining the base image to use
 source "azure-arm" "ubuntu" {
   subscription_id = var.azure_subscription_id
-  resource_group_name = var.azure_resource_group
   
-  # Using Managed Identity for authentication (no client_id, client_secret, tenant_id needed)
+  # Managed image output configuration
+  managed_image_name = local.full_image_name
+  managed_image_resource_group_name = var.azure_resource_group
+  
+  
+  # Using Managed Identity for authentication
   use_azure_cli_auth = true
+  
+  # Required temporary storage account settings
+  # Either specify an existing storage account or let Packer create a temporary one
+  temp_resource_group_name = "${var.azure_resource_group}-temp-packer"
+  temp_compute_name        = "pkrtmp"
   
   # VM and Image configuration
   os_type = "Linux"
   image_publisher = "Canonical"
   image_offer = "0001-com-ubuntu-server-jammy"
-  image_sku = "22_04-lts"
+  image_sku = "22_04-lts-gen2"  # Using Gen2 Ubuntu image
   
   location = var.azure_location
   vm_size = var.vm_size
-
-  # Managed image output configuration
-  managed_image_name = local.full_image_name
-  managed_image_resource_group_name = var.azure_resource_group
   
   # Deployment/cleanup settings
   azure_tags = {
@@ -72,6 +77,7 @@ source "azure-arm" "ubuntu" {
     Location = "Poland"
     Version = local.version_suffix
     Application = "DotNet-Services"
+    Generation = "2"
   }
 }
 

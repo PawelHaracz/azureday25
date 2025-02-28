@@ -1,0 +1,416 @@
+dotnet-services-image.azure-arm.ubuntu: output will be in this color.
+
+==> dotnet-services-image.azure-arm.ubuntu: Running builder ...
+    dotnet-services-image.azure-arm.ubuntu: Creating Azure Resource Manager (ARM) client ...
+    dotnet-services-image.azure-arm.ubuntu: ARM Client successfully created
+==> dotnet-services-image.azure-arm.ubuntu: WARNING: Zone resiliency may not be supported in Poland Central, checkout the docs at https://docs.microsoft.com/en-us/azure/availability-zones/
+==> dotnet-services-image.azure-arm.ubuntu: Getting source image id for the deployment ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> SourceImageName: '/subscriptions/cb5863b1-784d-4813-b2c7-e87919081ecb/providers/Microsoft.Compute/locations/Poland Central/publishers/Canonical/ArtifactTypes/vmimage/offers/0001-com-ubuntu-server-jammy/skus/22_04-lts/versions/latest'
+==> dotnet-services-image.azure-arm.ubuntu: Creating resource group ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Location          : 'Poland Central'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Tags              :
+==> dotnet-services-image.azure-arm.ubuntu:  ->> Application : DotNet-Services
+==> dotnet-services-image.azure-arm.ubuntu:  ->> Created : 1740780855
+==> dotnet-services-image.azure-arm.ubuntu:  ->> Environment : Production
+==> dotnet-services-image.azure-arm.ubuntu:  ->> Location : Poland
+==> dotnet-services-image.azure-arm.ubuntu:  ->> Version : 1.0.0
+==> dotnet-services-image.azure-arm.ubuntu: Validating deployment template ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> DeploymentName    : 'pkrdpxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu: Deploying deployment template ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> DeploymentName    : 'pkrdpxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu: Getting the VM's IP address ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName   : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> PublicIPAddressName : 'pkripxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu:  -> NicName             : 'pkrnixmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Network Connection  : 'PublicEndpoint'
+==> dotnet-services-image.azure-arm.ubuntu:  -> IP Address          : '74.248.149.42'
+==> dotnet-services-image.azure-arm.ubuntu: Waiting for SSH to become available...
+==> dotnet-services-image.azure-arm.ubuntu: Connected to SSH!
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell3218653042
+    dotnet-services-image.azure-arm.ubuntu: Installing dependencies...
+    dotnet-services-image.azure-arm.ubuntu: Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+    dotnet-services-image.azure-arm.ubuntu: Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [2110 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:6 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+    dotnet-services-image.azure-arm.ubuntu: Get:7 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [329 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:8 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2899 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [509 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:10 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [965 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:11 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [207 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:12 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:13 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37.6 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:14 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [8260 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:15 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [224 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:16 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:17 http://archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:18 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:19 http://archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:20 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:21 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [2352 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:22 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [392 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:23 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [3008 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:24 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [528 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:25 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1192 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:26 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [293 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:27 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [26.4 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [44.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [11.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:30 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [440 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:31 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67.7 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:32 http://archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11.1 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:33 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:34 http://archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:35 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [30.0 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:36 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.6 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:37 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:38 http://archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+    dotnet-services-image.azure-arm.ubuntu: Fetched 35.8 MB in 8s (4547 kB/s)
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+==> dotnet-services-image.azure-arm.ubuntu: --2025-02-28 22:15:34--  https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: apt is already the newest version (2.4.13).
+    dotnet-services-image.azure-arm.ubuntu: apt set to manually installed.
+    dotnet-services-image.azure-arm.ubuntu: software-properties-common is already the newest version (0.99.22.9).
+    dotnet-services-image.azure-arm.ubuntu: software-properties-common set to manually installed.
+    dotnet-services-image.azure-arm.ubuntu: wget is already the newest version (1.21.2-2ubuntu1.1).
+    dotnet-services-image.azure-arm.ubuntu: wget set to manually installed.
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+    dotnet-services-image.azure-arm.ubuntu: Installing .NET SDK...
+==> dotnet-services-image.azure-arm.ubuntu: Resolving packages.microsoft.com (packages.microsoft.com)... 13.107.246.44, 2620:1ec:bdf::44
+==> dotnet-services-image.azure-arm.ubuntu: Connecting to packages.microsoft.com (packages.microsoft.com)|13.107.246.44|:443... connected.
+==> dotnet-services-image.azure-arm.ubuntu: HTTP request sent, awaiting response... 200 OK
+==> dotnet-services-image.azure-arm.ubuntu: Length: 3692 (3.6K) [application/octet-stream]
+==> dotnet-services-image.azure-arm.ubuntu: Saving to: ‘packages-microsoft-prod.deb’
+==> dotnet-services-image.azure-arm.ubuntu:
+==> dotnet-services-image.azure-arm.ubuntu:      0K ...                                                   100% 1.81G=0s
+==> dotnet-services-image.azure-arm.ubuntu:
+==> dotnet-services-image.azure-arm.ubuntu: 2025-02-28 22:15:34 (1.81 GB/s) - ‘packages-microsoft-prod.deb’ saved [3692/3692]
+==> dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package packages-microsoft-prod.
+    dotnet-services-image.azure-arm.ubuntu: (Reading database ... 62674 files and directories currently installed.)
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack packages-microsoft-prod.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking packages-microsoft-prod (1.0-ubuntu22.04.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up packages-microsoft-prod (1.0-ubuntu22.04.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Get:1 http://azure.archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:2 http://azure.archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:3 http://azure.archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:4 http://azure.archive.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:5 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease [3632 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:6 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1395 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:7 http://azure.archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:8 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30.3 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:9 http://azure.archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:10 http://azure.archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18.6 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:11 http://azure.archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:12 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+    dotnet-services-image.azure-arm.ubuntu: Get:13 http://azure.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:14 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:15 http://azure.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:16 http://azure.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:17 http://azure.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:18 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [2352 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:19 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main all Packages [1243 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:20 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [392 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:21 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [17.9 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:22 http://azure.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [3008 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:23 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main arm64 Packages [46.2 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:24 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 Packages [186 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:25 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main armhf Packages [17.3 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:26 http://azure.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [528 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:27 http://azure.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [612 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:28 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1192 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:29 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [293 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:30 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [26.4 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:31 http://azure.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [44.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:32 http://azure.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [11.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:33 http://azure.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [440 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:34 http://azure.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [67.7 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:35 http://azure.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [11.1 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:36 http://azure.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:37 http://azure.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:38 http://azure.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [30.0 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:39 http://azure.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.6 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:40 http://azure.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:41 http://azure.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:42 http://azure.archive.ubuntu.com/ubuntu jammy-security/main amd64 Packages [2110 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:43 http://azure.archive.ubuntu.com/ubuntu jammy-security/main Translation-en [329 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:44 http://azure.archive.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13.3 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:45 http://azure.archive.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2899 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:46 http://azure.archive.ubuntu.com/ubuntu jammy-security/restricted Translation-en [509 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:47 http://azure.archive.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [580 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:48 http://azure.archive.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [965 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:49 http://azure.archive.ubuntu.com/ubuntu jammy-security/universe Translation-en [207 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:50 http://azure.archive.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19.5 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:51 http://azure.archive.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37.6 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:52 http://azure.archive.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [8260 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:53 http://azure.archive.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [224 B]
+    dotnet-services-image.azure-arm.ubuntu: Fetched 38.4 MB in 6s (6783 kB/s)
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: The following additional packages will be installed:
+    dotnet-services-image.azure-arm.ubuntu:   aspnetcore-runtime-9.0 aspnetcore-targeting-pack-9.0 dotnet-apphost-pack-9.0
+    dotnet-services-image.azure-arm.ubuntu:   dotnet-host dotnet-hostfxr-9.0 dotnet-runtime-9.0 dotnet-runtime-deps-9.0
+    dotnet-services-image.azure-arm.ubuntu:   dotnet-targeting-pack-9.0 netstandard-targeting-pack-2.1
+    dotnet-services-image.azure-arm.ubuntu: The following NEW packages will be installed:
+    dotnet-services-image.azure-arm.ubuntu:   aspnetcore-runtime-9.0 aspnetcore-targeting-pack-9.0 dotnet-apphost-pack-9.0
+    dotnet-services-image.azure-arm.ubuntu:   dotnet-host dotnet-hostfxr-9.0 dotnet-runtime-9.0 dotnet-runtime-deps-9.0
+    dotnet-services-image.azure-arm.ubuntu:   dotnet-sdk-9.0 dotnet-targeting-pack-9.0 netstandard-targeting-pack-2.1
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 10 newly installed, 0 to remove and 20 not upgraded.
+    dotnet-services-image.azure-arm.ubuntu: Need to get 141 MB of archives.
+    dotnet-services-image.azure-arm.ubuntu: After this operation, 583 MB of additional disk space will be used.
+    dotnet-services-image.azure-arm.ubuntu: Get:1 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 netstandard-targeting-pack-2.1 amd64 6.0.136-0ubuntu1~22.04.1 [1398 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:2 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-host amd64 9.0.2-1 [36.7 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:3 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-hostfxr-9.0 amd64 9.0.2-1 [110 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:4 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-deps-9.0 amd64 9.0.2-1 [2894 B]
+    dotnet-services-image.azure-arm.ubuntu: Get:5 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-9.0 amd64 9.0.2-1 [24.8 MB]
+    dotnet-services-image.azure-arm.ubuntu: Get:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-runtime-9.0 amd64 9.0.2-1 [7855 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:7 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-targeting-pack-9.0 amd64 9.0.2-1 [2903 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-targeting-pack-9.0 amd64 9.0.2-1 [1999 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:9 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-apphost-pack-9.0 amd64 9.0.2-1 [3751 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:10 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-9.0 amd64 9.0.200-1 [97.7 MB]
+==> dotnet-services-image.azure-arm.ubuntu: debconf: unable to initialize frontend: Dialog
+==> dotnet-services-image.azure-arm.ubuntu: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> dotnet-services-image.azure-arm.ubuntu: debconf: falling back to frontend: Readline
+    dotnet-services-image.azure-arm.ubuntu: Fetched 141 MB in 8s (16.7 MB/s)
+==> dotnet-services-image.azure-arm.ubuntu: debconf: unable to initialize frontend: Readline
+==> dotnet-services-image.azure-arm.ubuntu: debconf: (This frontend requires a controlling tty.)
+==> dotnet-services-image.azure-arm.ubuntu: debconf: falling back to frontend: Teletype
+==> dotnet-services-image.azure-arm.ubuntu: dpkg-preconfigure: unable to re-open stdin:
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-host.
+    dotnet-services-image.azure-arm.ubuntu: (Reading database ... 62682 files and directories currently installed.)
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../0-dotnet-host_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-host (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-hostfxr-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../1-dotnet-hostfxr-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-hostfxr-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-runtime-deps-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../2-dotnet-runtime-deps-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-runtime-deps-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-runtime-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../3-dotnet-runtime-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-runtime-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package aspnetcore-runtime-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../4-aspnetcore-runtime-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking aspnetcore-runtime-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-targeting-pack-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../5-dotnet-targeting-pack-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-targeting-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package aspnetcore-targeting-pack-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../6-aspnetcore-targeting-pack-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking aspnetcore-targeting-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-apphost-pack-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../7-dotnet-apphost-pack-9.0_9.0.2-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-apphost-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package netstandard-targeting-pack-2.1.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../8-netstandard-targeting-pack-2.1_6.0.136-0ubuntu1~22.04.1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking netstandard-targeting-pack-2.1 (6.0.136-0ubuntu1~22.04.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package dotnet-sdk-9.0.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../9-dotnet-sdk-9.0_9.0.200-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking dotnet-sdk-9.0 (9.0.200-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-host (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up netstandard-targeting-pack-2.1 (6.0.136-0ubuntu1~22.04.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-hostfxr-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-runtime-deps-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-targeting-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-runtime-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-apphost-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up aspnetcore-targeting-pack-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up aspnetcore-runtime-9.0 (9.0.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up dotnet-sdk-9.0 (9.0.200-1) ...
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: Running kernel seems to be up-to-date.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No services need to be restarted.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No containers need to be restarted.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No user sessions are running outdated binaries.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: aspnetcore-runtime-9.0 is already the newest version (9.0.2-1).
+    dotnet-services-image.azure-arm.ubuntu: aspnetcore-runtime-9.0 set to manually installed.
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell1498171234
+==> dotnet-services-image.azure-arm.ubuntu: Uploading ./services/api-gateway/ => /opt/dotnet/api-gateway/
+==> dotnet-services-image.azure-arm.ubuntu: Uploading ./services/todo-service/ => /opt/dotnet/todo-service/
+==> dotnet-services-image.azure-arm.ubuntu: Uploading ./services/project-service/ => /opt/dotnet/project-service/
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell1184333093
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell1186756124
+==> dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/multi-user.target.wants/api-gateway.service → /etc/systemd/system/api-gateway.service.
+==> dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/multi-user.target.wants/todo-service.service → /etc/systemd/system/todo-service.service.
+==> dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/multi-user.target.wants/project-service.service → /etc/systemd/system/project-service.service.
+    dotnet-services-image.azure-arm.ubuntu: Services installed and enabled to start on boot
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell1924906276
+    dotnet-services-image.azure-arm.ubuntu: Installing Azure Linux agent...
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: walinuxagent is already the newest version (2.2.46-0ubuntu5.1).
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
+    dotnet-services-image.azure-arm.ubuntu: Configuring firewall for Azure...
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: ufw is already the newest version (0.36.1-4ubuntu0.1).
+    dotnet-services-image.azure-arm.ubuntu: ufw set to manually installed.
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Rules updated
+    dotnet-services-image.azure-arm.ubuntu: Rules updated (v6)
+    dotnet-services-image.azure-arm.ubuntu: Installing monitoring tools...
+    dotnet-services-image.azure-arm.ubuntu: Reading package lists...
+    dotnet-services-image.azure-arm.ubuntu: Building dependency tree...
+    dotnet-services-image.azure-arm.ubuntu: Reading state information...
+    dotnet-services-image.azure-arm.ubuntu: The following additional packages will be installed:
+    dotnet-services-image.azure-arm.ubuntu:   libio-pty-perl libipc-run-perl libtime-duration-perl libtimedate-perl
+    dotnet-services-image.azure-arm.ubuntu:   moreutils prometheus-node-exporter-collectors smartmontools
+    dotnet-services-image.azure-arm.ubuntu: Suggested packages:
+    dotnet-services-image.azure-arm.ubuntu:   gsmartcontrol smart-notifier mailx | mailutils
+    dotnet-services-image.azure-arm.ubuntu: The following NEW packages will be installed:
+    dotnet-services-image.azure-arm.ubuntu:   libio-pty-perl libipc-run-perl libtime-duration-perl libtimedate-perl
+    dotnet-services-image.azure-arm.ubuntu:   moreutils prometheus-node-exporter prometheus-node-exporter-collectors
+    dotnet-services-image.azure-arm.ubuntu:   smartmontools
+    dotnet-services-image.azure-arm.ubuntu: 0 upgraded, 8 newly installed, 0 to remove and 20 not upgraded.
+    dotnet-services-image.azure-arm.ubuntu: Need to get 4746 kB of archives.
+    dotnet-services-image.azure-arm.ubuntu: After this operation, 14.6 MB of additional disk space will be used.
+    dotnet-services-image.azure-arm.ubuntu: Get:1 http://azure.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 prometheus-node-exporter amd64 1.3.1-1ubuntu0.22.04.3 [3901 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:2 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libio-pty-perl amd64 1:1.15-2build2 [35.1 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:3 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libipc-run-perl all 20200505.0-1 [89.8 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:4 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libtime-duration-perl all 1.21-1 [13.1 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:5 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 libtimedate-perl all 2.3300-2 [34.0 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:6 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 moreutils amd64 0.66-1 [63.3 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:7 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 prometheus-node-exporter-collectors all 0+git20211024.8eeeffb-1 [27.1 kB]
+    dotnet-services-image.azure-arm.ubuntu: Get:8 http://azure.archive.ubuntu.com/ubuntu jammy-updates/main amd64 smartmontools amd64 7.2-1ubuntu0.1 [583 kB]
+==> dotnet-services-image.azure-arm.ubuntu: debconf: unable to initialize frontend: Dialog
+==> dotnet-services-image.azure-arm.ubuntu: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> dotnet-services-image.azure-arm.ubuntu: debconf: falling back to frontend: Readline
+==> dotnet-services-image.azure-arm.ubuntu: debconf: unable to initialize frontend: Readline
+==> dotnet-services-image.azure-arm.ubuntu: debconf: (This frontend requires a controlling tty.)
+==> dotnet-services-image.azure-arm.ubuntu: debconf: falling back to frontend: Teletype
+==> dotnet-services-image.azure-arm.ubuntu: dpkg-preconfigure: unable to re-open stdin:
+    dotnet-services-image.azure-arm.ubuntu: Fetched 4746 kB in 1s (8200 kB/s)
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package prometheus-node-exporter.
+    dotnet-services-image.azure-arm.ubuntu: (Reading database ... 68353 files and directories currently installed.)
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../0-prometheus-node-exporter_1.3.1-1ubuntu0.22.04.3_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking prometheus-node-exporter (1.3.1-1ubuntu0.22.04.3) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package libio-pty-perl.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../1-libio-pty-perl_1%3a1.15-2build2_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking libio-pty-perl (1:1.15-2build2) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package libipc-run-perl.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../2-libipc-run-perl_20200505.0-1_all.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking libipc-run-perl (20200505.0-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package libtime-duration-perl.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../3-libtime-duration-perl_1.21-1_all.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking libtime-duration-perl (1.21-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package libtimedate-perl.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../4-libtimedate-perl_2.3300-2_all.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking libtimedate-perl (2.3300-2) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package moreutils.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../5-moreutils_0.66-1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking moreutils (0.66-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package prometheus-node-exporter-collectors.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../6-prometheus-node-exporter-collectors_0+git20211024.8eeeffb-1_all.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking prometheus-node-exporter-collectors (0+git20211024.8eeeffb-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Selecting previously unselected package smartmontools.
+    dotnet-services-image.azure-arm.ubuntu: Preparing to unpack .../7-smartmontools_7.2-1ubuntu0.1_amd64.deb ...
+    dotnet-services-image.azure-arm.ubuntu: Unpacking smartmontools (7.2-1ubuntu0.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up smartmontools (7.2-1ubuntu0.1) ...
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/smartd.service → /lib/systemd/system/smartmontools.service.
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/multi-user.target.wants/smartmontools.service → /lib/systemd/system/smartmontools.service.
+    dotnet-services-image.azure-arm.ubuntu: Setting up libio-pty-perl (1:1.15-2build2) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up prometheus-node-exporter (1.3.1-1ubuntu0.22.04.3) ...
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/multi-user.target.wants/prometheus-node-exporter.service → /lib/systemd/system/prometheus-node-exporter.service.
+    dotnet-services-image.azure-arm.ubuntu: Setting up libipc-run-perl (20200505.0-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up libtime-duration-perl (1.21-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up libtimedate-perl (2.3300-2) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up moreutils (0.66-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Setting up prometheus-node-exporter-collectors (0+git20211024.8eeeffb-1) ...
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/timers.target.wants/prometheus-node-exporter-apt.timer → /lib/systemd/system/prometheus-node-exporter-apt.timer.
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/timers.target.wants/prometheus-node-exporter-ipmitool-sensor.timer → /lib/systemd/system/prometheus-node-exporter-ipmitool-sensor.timer.
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/timers.target.wants/prometheus-node-exporter-mellanox-hca-temp.timer → /lib/systemd/system/prometheus-node-exporter-mellanox-hca-temp.timer.
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/timers.target.wants/prometheus-node-exporter-nvme.timer → /lib/systemd/system/prometheus-node-exporter-nvme.timer.
+    dotnet-services-image.azure-arm.ubuntu: Created symlink /etc/systemd/system/timers.target.wants/prometheus-node-exporter-smartmon.timer → /lib/systemd/system/prometheus-node-exporter-smartmon.timer.
+    dotnet-services-image.azure-arm.ubuntu: Processing triggers for man-db (2.10.2-1) ...
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: Running kernel seems to be up-to-date.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No services need to be restarted.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No containers need to be restarted.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No user sessions are running outdated binaries.
+    dotnet-services-image.azure-arm.ubuntu:
+    dotnet-services-image.azure-arm.ubuntu: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    dotnet-services-image.azure-arm.ubuntu: 1.0.0
+    dotnet-services-image.azure-arm.ubuntu: Installation completed successfully
+==> dotnet-services-image.azure-arm.ubuntu: Provisioning with shell script: /var/folders/qg/2k8256gj6wv6fms1b38s42780000gn/T/packer-shell3233954718
+==> dotnet-services-image.azure-arm.ubuntu: /usr/sbin/waagent:27: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+==> dotnet-services-image.azure-arm.ubuntu:   import imp
+    dotnet-services-image.azure-arm.ubuntu: WARNING! The waagent service will be stopped.
+    dotnet-services-image.azure-arm.ubuntu: WARNING! Cached DHCP leases will be deleted.
+    dotnet-services-image.azure-arm.ubuntu: WARNING! root password will be disabled. You will not be able to login as root.
+    dotnet-services-image.azure-arm.ubuntu: WARNING! /etc/resolv.conf will NOT be removed, this is a behavior change to earlier versions of Ubuntu.
+    dotnet-services-image.azure-arm.ubuntu: WARNING! packer account and entire home directory will be deleted.
+==> dotnet-services-image.azure-arm.ubuntu: Querying the machine's properties ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> ComputeName       : 'pkrtmp'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Managed OS Disk   : '/subscriptions/cb5863b1-784d-4813-b2c7-e87919081ecb/resourceGroups/azureday2025-temp-packer/providers/Microsoft.Compute/disks/pkrosxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu: Querying the machine's additional disks properties ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> ComputeName       : 'pkrtmp'
+==> dotnet-services-image.azure-arm.ubuntu: Powering off machine ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> ComputeName       : 'pkrtmp'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Compute ResourceGroupName : 'azureday2025-temp-packer'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Compute Name              : 'pkrtmp'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Compute Location          : 'Poland Central'
+==> dotnet-services-image.azure-arm.ubuntu: Generalizing machine ...
+==> dotnet-services-image.azure-arm.ubuntu: Capturing image ...
+==> dotnet-services-image.azure-arm.ubuntu:  -> Image ResourceGroupName   : 'azureday2025'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Image Name                : 'dotnet-services-1.0.0'
+==> dotnet-services-image.azure-arm.ubuntu:  -> Image Location            : 'Poland Central'
+==> dotnet-services-image.azure-arm.ubuntu: 
+==> dotnet-services-image.azure-arm.ubuntu: Deleting Virtual Machine deployment and its attached resources...
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> pkrtmp : 'Microsoft.Compute/virtualMachines'
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> pkrnixmz3ygjlhf : 'Microsoft.Network/networkInterfaces'
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> pkrvnxmz3ygjlhf : 'Microsoft.Network/virtualNetworks'
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> pkrsgxmz3ygjlhf : 'Microsoft.Network/networkSecurityGroups'
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> pkripxmz3ygjlhf : 'Microsoft.Network/publicIPAddresses'
+==> dotnet-services-image.azure-arm.ubuntu: Deleted -> Microsoft.Compute/disks : '/subscriptions/cb5863b1-784d-4813-b2c7-e87919081ecb/resourceGroups/azureday2025-temp-packer/providers/Microsoft.Compute/disks/pkrosxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu: Removing the created Deployment object: 'pkrdpxmz3ygjlhf'
+==> dotnet-services-image.azure-arm.ubuntu: 
+==> dotnet-services-image.azure-arm.ubuntu: Cleanup requested, deleting resource group ...
+==> dotnet-services-image.azure-arm.ubuntu: Resource group has been deleted.
+Build 'dotnet-services-image.azure-arm.ubuntu' finished after 4 minutes 48 seconds.
+
+==> Wait completed after 4 minutes 48 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> dotnet-services-image.azure-arm.ubuntu: Azure.ResourceManagement.VMImage:
+
+OSType: Linux
+ManagedImageResourceGroupName: azureday2025
+ManagedImageName: dotnet-services-1.0.0
+ManagedImageId: /subscriptions/cb5863b1-784d-4813-b2c7-e87919081ecb/resourceGroups/azureday2025/providers/Microsoft.Compute/images/dotnet-services-1.0.0
+ManagedImageLocation: Poland Central
