@@ -6,6 +6,7 @@ patches:
     kind: ServiceAccount
     metadata:
       name: source-controller
+      namespace: flux-system
       annotations:
         azure.workload.identity/client-id: ad1f41f3-6dbd-4395-bb69-be360542d124
         azure.workload.identity/tenant-id: 4c83ec3e-26b4-444f-afb7-8b171cd1b420
