@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: acr-shared
+  namespace: flux-system
+spec:
+  type: oci
+  interval: 5m
+  url: oci://crphhealthtrackrprod.azurecr.io
+  provider: azure
