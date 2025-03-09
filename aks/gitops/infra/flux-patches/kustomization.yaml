@@ -1,59 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources: []
 patches:
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
 - path: deployment-flux-use-workload-idenity.yaml
   target:
     kind: Deployment
     namespace: flux-system
-    name: helm-controller
-- path: deployment-flux-use-workload-idenity.yaml
-  target:
-    kind: Deployment
-    namespace: flux-system
-    name: fluxconfig-agent
-- path: deployment-flux-use-workload-idenity.yaml
-  target:
-    kind: Deployment
-    namespace: flux-system
-    name: fluxconfig-controller
-- path: deployment-flux-use-workload-idenity.yaml
-  target:
-    kind: Deployment
-    namespace: flux-system
-    name: kustomize-controller
-- path: deployment-flux-use-workload-idenity.yaml
-  target:
-    kind: Deplyment
-    namespace: flux-system
-    name: notification-controller
-- path: deployment-flux-use-workload-idenity.yaml
-  target:
-    kind: Deplyment
-    namespace: flux-system
-    name: source-controller   
-- path: serviceaccount-workload-identity-patch.yaml
-  target:
-    kind: ServiceAccount
-    namespace: flux-system
-    name: flux-operatorsa
-- path: serviceaccount-workload-identity-patch.yaml
-  target:
-    kind: ServiceAccount
-    namespace: flux-system
-    name: helm-controller
-- path: serviceaccount-workload-identity-patch.yaml
-  target:
-    kind: ServiceAccount
-    namespace: flux-system
-    name: kustomize-controller
-- path: serviceaccount-workload-identity-patch.yaml
-  target:
-    kind: ServiceAccount
-    namespace: flux-system
-    name: source-controller
-- path: serviceaccount-workload-identity-patch.yaml
-  target:
-    kind: ServiceAccount
-    namespace: flux-system
-    name: notification-controller

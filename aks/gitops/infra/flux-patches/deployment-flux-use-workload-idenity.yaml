@@ -1,3 +1,7 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: required-for-kustomize-but-not-used
 spec:
   template:
     metadata:
