@@ -1,0 +1,3 @@
+[submodule "opentelemetry-containerapps"]
+	path = lets-build-aca
+	url = https://github.com/willvelida/lets-build-aca.git
