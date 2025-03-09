@@ -1,5 +1,32 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
-resources:
-- flux-patches/
+metadata:
+  name: flux-workload-identity-patches
+  namespace: flux-system
+resources: []
+patches:
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
+    name: flux-operatorsa
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
+    name: helm-controller
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
+    name: kustomize-controller
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
+    name: source-controller
+- path: serviceaccount-workload-identity-patch.yaml
+  target:
+    kind: ServiceAccount
+    namespace: flux-system
+    name: notification-controller
