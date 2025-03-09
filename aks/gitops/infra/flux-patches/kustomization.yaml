@@ -5,7 +5,9 @@ patches:
   target:
     kind: ServiceAccount
     namespace: flux-system
+    name: source-controller
 - path: deployment-flux-use-workload-idenity.yaml
   target:
     kind: Deployment
     namespace: flux-system
+    name: source-controller
