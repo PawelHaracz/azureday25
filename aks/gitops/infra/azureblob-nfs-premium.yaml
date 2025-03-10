@@ -1,10 +1,12 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azureblob-nfs-premium
+  name: azureblob-nfs-premium-retain
 provisioner: blob.csi.azure.com
+reclaimPolicy: Retain
 parameters:
   protocol: nfs
   tags: environment=azurday
-volumeBindingMode: Immediate
+  skuName: Premium_LRS
+volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
