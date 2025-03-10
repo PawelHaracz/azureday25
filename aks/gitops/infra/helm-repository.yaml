@@ -6,5 +6,5 @@ metadata:
 spec:
   type: oci
   interval: 5m
-  url: oci://crphhealthtrackrprod.azurecr.io
+  url: oci://crphhealthtrackrprod.azurecr.io/helm
   provider: azure
