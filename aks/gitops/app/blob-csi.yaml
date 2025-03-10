@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: azure-blob-storage
+  name: azure-blob-storage-claim
   namespace: default
 spec:
   accessModes:

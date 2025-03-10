@@ -8,7 +8,6 @@ parameters:
   skuName: Premium_LRS
 mountOptions:
   - sec=sys
-  - vers=3
   - nolock
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
