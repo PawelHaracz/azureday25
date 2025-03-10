@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteMany
-  storageClassName: azureblob-nfs-premium
+  storageClassName: azureblob-nfs-premium-compatible
   resources:
     requests:
       storage: 5Gi

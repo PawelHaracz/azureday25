@@ -1,0 +1,15 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azureblob-nfs-premium-compatible
+provisioner: blob.csi.azure.com
+parameters:
+  protocol: nfs
+  skuName: Premium_LRS
+mountOptions:
+  - sec=sys
+  - vers=3
+  - nolock
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true 
