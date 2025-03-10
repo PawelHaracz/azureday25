@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 patches:
+# Option 1: Inline patch example (can be removed if going with path-based patches)
 - patch: |-
     apiVersion: v1
     kind: ServiceAccount
@@ -15,7 +16,8 @@ patches:
   target:
     kind: ServiceAccount
     namespace: flux-system
-    name: source-controller
+
+
 - path: deployment-flux-use-workload-idenity.yaml
   target:
     kind: Deployment

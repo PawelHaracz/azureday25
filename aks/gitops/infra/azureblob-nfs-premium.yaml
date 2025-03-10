@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azureblob-nfs-premium
+provisioner: blob.csi.azure.com
+parameters:
+  protocol: nfs
+  tags: environment=azurday
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+mountOptions:
+  - nconnect=4
