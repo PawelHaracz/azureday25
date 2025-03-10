@@ -8,5 +8,3 @@ parameters:
   tags: environment=azurday
 volumeBindingMode: Immediate
 allowVolumeExpansion: true
-mountOptions:
-  - nconnect=4
