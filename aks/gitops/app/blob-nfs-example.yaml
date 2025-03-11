@@ -21,4 +21,4 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: azure-blob-storage-claim
+        claimName: azure-blob-storage-claim-retain
