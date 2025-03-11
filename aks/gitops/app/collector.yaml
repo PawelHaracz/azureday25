@@ -1,0 +1,83 @@
+# https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/a1b1a32412b628bcd2faba78f37918f51da28c97/exporter/azuremonitorexporter/README.md?plain=1#L52
+apiVersion: opentelemetry.io/v1beta1
+kind: OpenTelemetryCollector
+metadata:
+  name: application-insights
+  namespace: default
+spec:
+  mode: deployment
+
+  observability: 
+    metrics:
+      enableMetrics: true
+      disablePrometheusAnnotations: false
+
+  env:
+    - name: INSTRUMENTATIONKEY
+      valueFrom: 
+        secretKeyRef:
+          name: telemetry
+          key: InstrumentationKey
+    - name: CONNECTIONSTRING
+      valueFrom: 
+        secretKeyRef:
+          name: telemetry
+          key: ConnectionString
+
+  config:
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            endpoint: 0.0.0.0:4318
+      otlp/2:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:55690
+
+    processors:
+      memory_limiter:
+        check_interval: 1s
+        limit_percentage: 75
+        spike_limit_percentage: 15
+      batch:
+        # Default batch configuration
+        timeout: 5s
+        send_batch_size: 1024
+      batch/test:
+        # Custom configuration for the test pipeline
+        timeout: 2s
+        send_batch_size: 512
+
+    exporters:
+      azuremonitor:
+        connection_string: ${env:CONNECTIONSTRING}
+        spaneventsenabled: true
+      debug:
+        verbosity: normal
+
+    extensions:
+      health_check:
+        endpoint: 0.0.0.0:13133
+      pprof:
+        endpoint: 0.0.0.0:1777
+      zpages:
+        endpoint: 0.0.0.0:55679
+
+    service:
+      extensions: [health_check, pprof, zpages]
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [azuremonitor]
+        traces/2:
+          receivers: [otlp/2]
+          processors: [batch/test]
+          exporters: [azuremonitor]
+        metrics:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [azuremonitor]
