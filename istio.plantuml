@@ -1,0 +1,72 @@
+@startuml Istio Gateway with Cert Manager
+
+!define RECTANGLE class
+!define INTERFACE interface
+
+skinparam componentStyle uml2
+skinparam backgroundColor white
+skinparam handwritten false
+
+'Colors
+skinparam rectangle {
+    BackgroundColor<<auth>> LightYellow
+    BackgroundColor<<service>> LightBlue
+    BackgroundColor<<gateway>> LightGreen
+    BackgroundColor<<telemetry>> LightGray
+    BackgroundColor<<cert>> Pink
+}
+
+actor "User" as user
+
+rectangle "Istio Gateway Layer" as gateway <<gateway>> {
+    [microservices-gateway\n(port: 443)] as gateway_entry
+}
+
+rectangle "Virtual Services Layer" as virtual_services <<service>> {
+    [project-service-routes] as vs_project
+    [todo-service-routes] as vs_todo
+}
+
+rectangle "Services Layer" as services <<service>> {
+    [project-service:8080] as svc_project
+    [todo-service:8080] as svc_todo
+    database "Project DB" as project_db
+    database "Todo DB" as todo_db
+}
+
+rectangle "Telemetry Layer" as telemetry <<telemetry>> {
+    [TelemetryProvider\napplication-insights-collector] as telemetry_provider
+    [OpenTelemetry Collector] as otel
+    [Application Insights] as app_insights
+}
+
+
+' Project Service Flow
+user --> gateway_entry
+gateway_entry --> vs_project : /projects/**\n(with JWT)
+vs_project --> svc_project : rewrite /
+svc_project --> project_db : CRUD Operations
+
+' Todo Service Flow
+gateway_entry --> vs_todo : /todos/**\n(with JWT)
+vs_todo --> svc_todo : rewrite /
+svc_todo --> todo_db : CRUD Operations
+svc_todo --> svc_project : Get Project Details
+
+' Telemetry Flow
+gateway_entry ..> telemetry_provider : traces
+svc_project ..> telemetry_provider : traces
+svc_todo ..> telemetry_provider : traces
+
+telemetry_provider --> otel : export
+otel --> app_insights : export
+
+note right of gateway_entry
+  Hosts: api.example.com
+  Protocol: HTTPS
+  TLS: Enabled
+  Auth: JWT Validation
+end note
+
+
+@enduml

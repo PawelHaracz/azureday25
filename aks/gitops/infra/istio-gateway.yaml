@@ -1,0 +1,215 @@
+# Gateway definition - entry point for the mesh
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: microservices-gateway
+  namespace: default
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    hosts:
+    - "api.example.com"
+    tls:
+      mode: SIMPLE
+      credentialName: api-example-com-tls
+---
+# VirtualService for routing to user-service
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: user-service-routes
+  namespace: default
+spec:
+  hosts:
+  - "api.example.com"
+  gateways:
+  - microservices-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /users
+    rewrite:
+      uri: /
+    headers:
+      request:
+        set:
+          x-b3-sampled: "1"  # Force sampling for tracing
+    route:
+    - destination:
+        host: user-service
+        port:
+          number: 8080
+---
+# VirtualService for routing to order-service
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: order-service-routes
+  namespace: default
+spec:
+  hosts:
+  - "api.example.com"
+  gateways:
+  - microservices-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /orders
+    rewrite:
+      uri: /
+    headers:
+      request:
+        set:
+          x-b3-sampled: "1"  # Force sampling for tracing
+    route:
+    - destination:
+        host: order-service
+        port:
+          number: 8080
+---
+# VirtualService for routing to product-service
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: product-service-routes
+  namespace: default
+spec:
+  hosts:
+  - "api.example.com"
+  gateways:
+  - microservices-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /products
+    rewrite:
+      uri: /
+    headers:
+      request:
+        set:
+          x-b3-sampled: "1"  # Force sampling for tracing
+    route:
+    - destination:
+        host: product-service
+        port:
+          number: 8080
+---
+# Istio telemetry configuration
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: mesh-default
+  namespace: istio-system
+spec:
+  tracing:
+  - providers:
+    - name: application-insights-collector
+    randomSamplingPercentage: 100.0
+    customTags:
+      environment:
+        literal:
+          value: production
+    
+  accessLogging:
+  - providers:
+    - name: application-insights-collector
+    
+  metrics:
+  - providers:
+    - name: prometheus
+---
+# Telemetry provider configuration
+apiVersion: telemetry.istio.io/v1alpha1
+kind: Telemetry
+metadata:
+  name: otel-provider
+  namespace: istio-system
+spec:
+  tracing:
+  - providers:
+    - name: application-insights-collector
+  accessLogging:
+  - providers:
+    - name: application-insights-collector
+---
+# DestinationRule for user-service with telemetry settings
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: user-service
+  namespace: default
+spec:
+  host: user-service
+  trafficPolicy:
+    connectionPool:
+      tcp:
+        maxConnections: 100
+      http:
+        http1MaxPendingRequests: 1024
+        http2MaxRequests: 1024
+        maxRequestsPerConnection: 10
+    outlierDetection:
+      consecutive5xxErrors: 5
+      interval: 30s
+      baseEjectionTime: 30s
+---
+# DestinationRule for order-service with telemetry settings
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: order-service
+  namespace: default
+spec:
+  host: order-service
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+    connectionPool:
+      tcp:
+        maxConnections: 100
+      http:
+        http1MaxPendingRequests: 1024
+        maxRequestsPerConnection: 10
+---
+# DestinationRule for product-service with telemetry settings
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: product-service
+  namespace: default
+spec:
+  host: product-service
+  trafficPolicy:
+    loadBalancer:
+      simple: LEAST_CONN
+---
+# Istio Gateway TelemetryProvider configuration
+apiVersion: telemetry.istio.io/v1alpha1
+kind: TelemetryProvider
+metadata:
+  name: application-insights-collector
+  namespace: istio-system
+spec:
+  zipkin:
+    service: application-insights-collector.default.svc.cluster.local
+    port: 9411
+    maxTagLength: 256
+
+---
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: entra-auth
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      istio: ingressgateway
+  jwtRules:
+  - issuer: "https://sts.windows.net/<TENANT_ID>/"
+    jwksUri: "https://login.microsoftonline.com/<TENANT_ID>/discovery/keys?appid=<APP_ID>"
